@@ -1,0 +1,10 @@
+# Cloudflare Pages 配置
+name = "my-ledger"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-10-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ledger"
+database_id = "cd8241f5-c8af-48e8-9a06-7e631390b362"
+migrations_dir = "migrations"

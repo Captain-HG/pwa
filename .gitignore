@@ -1,0 +1,10 @@
+node_modules
+dist
+dev-dist
+*.local
+.dev-data
+.wrangler
+samples/*
+!samples/README.txt
+.claude/
+*.tmp

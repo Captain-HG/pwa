@@ -1,0 +1,43 @@
+{
+  "name": "my-ledger",
+  "private": true,
+  "version": "1.5.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && tsc -p functions/tsconfig.json && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "cf:login": "wrangler login",
+    "cf:whoami": "wrangler whoami",
+    "cf:create": "wrangler pages project create my-ledger --production-branch main",
+    "db:create": "wrangler d1 create ledger",
+    "db:migrate:remote": "wrangler d1 migrations apply ledger --remote",
+    "user:create": "python scripts/create_user.py --remote",
+    "deploy": "npm test && npm run build && wrangler pages deploy --branch main --commit-dirty=true"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.13",
+    "dexie": "^4.0.11",
+    "echarts": "^5.6.0",
+    "fflate": "^0.8.3",
+    "pinia": "^3.0.2",
+    "vant": "^4.9.19",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260702.1",
+    "@types/node": "^20.19.43",
+    "@types/sql.js": "^1.4.11",
+    "@vitejs/plugin-vue": "^5.2.3",
+    "fake-indexeddb": "^6.0.0",
+    "sql.js": "^1.15.1",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5",
+    "vite-plugin-pwa": "^1.0.0",
+    "vitest": "^3.1.3",
+    "vue-tsc": "^2.2.10",
+    "wrangler": "^4.86.0"
+  }
+}
